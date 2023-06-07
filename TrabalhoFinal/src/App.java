@@ -24,7 +24,6 @@ public class App {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         while(menu()){
-            menu();
         }
         
         System.out.println("Fim do programa");
@@ -134,30 +133,33 @@ public class App {
             }
         }
         else{
-            System.out.println("Nenhum paciente encontrado");
+            System.out.println("Nenhum paciente a encontrado");
         }
     }
 
     public static void cadastroPacientes(){
         if(quantiaPacientes()<10){
             for(int i=0; i<10; i++){
-                if(((Paciente) vPacientes[i]).getNome() != null){
+                if(((Paciente) vPacientes[i]).getNome() == null){
                     System.out.println("Digite o nome do paciente");
-                    String nome = sc.nextLine();
+                    String nome = sc.next();
                     ((Paciente) vPacientes[i]).setNome(nome);
 
                     System.out.println("Digite o numero correspondente ao diagnostico");
                     for(int j=0; j<4; j++){
                         System.out.println((j+1)+". "+vDiagnostico[j]);
                     }
-                    int diagnostico = sc.nextInt()-1;
+                    sc.nextLine();
+                    int diagnostico = sc.nextInt();
+                    diagnostico = diagnostico - 1;
                     ((Paciente) vPacientes[i]).setDiagnostico(vDiagnostico[diagnostico]);
                     
                     System.out.println("Digite o numero correspondente ao medicamento");
                     for(int j=0; j<4; j++){
-                        System.out.println((j+1)+". "+((Medicamento) vMedicamento[j]).getMedicamento());
+                        System.out.println((j+1)+". "+((Medicamento) vMedicamento[j]).getRemedio());
                     }
-                    int medicamento = sc.nextInt()-1;
+                    int medicamento = sc.nextInt();
+                    medicamento = medicamento - 1;
                     ((Paciente) vPacientes[i]).setMedicamento(((Medicamento) vMedicamento[medicamento]).getRemedio());
 
                     int estoqueRemedio = ((Medicamento) vMedicamento[medicamento]).getQuantia();
@@ -169,12 +171,16 @@ public class App {
                         System.out.println("Digite o numero de caixas receitadas");
                         caixas = sc.nextInt();
                     }
+                    ((Medicamento) vMedicamento[i]).setQuantia(((Medicamento) vMedicamento[i]).getQuantia() - caixas);
+                    ((Paciente) vPacientes[i]).setCaixas(caixas);
 
-                    ((Paciente) vPacientes[i]).setCaixas(0);
+                    System.out.println("Digite o numero do cpf do paciente");
+                    long cpf = sc.nextLong();
+                    ((Paciente) vPacientes[i]).setCpf(cpf);
 
-                    ((Paciente) vPacientes[i]).setCpf(0);
-                    ((Paciente) vPacientes[i]).setTelefone(0);
-                    ((Paciente) vPacientes[i]).setCaixas(0);
+                    System.out.println("Digite o numero de telefone do paciente");
+                    long telefone = sc.nextLong();
+                    ((Paciente) vPacientes[i]).setTelefone(telefone);
 
                     break;
                 }
@@ -183,9 +189,5 @@ public class App {
         else{
             System.out.println("A upa esta lotada!!!");
         }
-    }
-
-    public static void teste(){
-        System.out.println("teste");
     }
 }

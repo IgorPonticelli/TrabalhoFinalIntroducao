@@ -20,8 +20,4 @@ public class Medicamento {
         "\n Estoque: " + quantia
         );    
     }
-
-    public int getMedicamento() {
-        return 0;
-    }
 }
