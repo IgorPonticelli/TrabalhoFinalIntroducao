@@ -32,12 +32,16 @@ public class App {
     public static boolean menu(){
         System.out.println("\f");
 
-        System.out.println("MENU OPCOES");
-        System.out.println("Digite a opcao desejada");
-        System.out.println("1. Ver medicamentos");
-        System.out.println("2. Ver pacientes");
-
-        System.out.println("10. Fechar o sistema");
+        System.out.println("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        System.out.println("┃      MENU OPÇÕES          ┃");
+        System.out.println("┃ Digite a opção desejada   ┃");
+        System.out.println("┃                           ┃");
+        System.out.println("┃1. Ver medicamentos        ┃");
+        System.out.println("┃                           ┃ ");
+        System.out.println("┃ 2. Ver pacientes          ┃");
+        System.out.println("┃                           ┃");
+        System.out.println("┃ 10. Fechar o sistema      ┃");
+        System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
         int opcao = sc.nextInt();
         System.out.println("\f");
         switch (opcao) {
