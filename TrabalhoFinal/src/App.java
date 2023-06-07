@@ -184,4 +184,8 @@ public class App {
             System.out.println("A upa esta lotada!!!");
         }
     }
+
+    public static void teste(){
+        System.out.println("teste");
+    }
 }
