@@ -32,21 +32,25 @@ public class App {
     public static boolean menu(){
         System.out.println("\f");
 
-        System.out.println("MENU OPCOES");
-        System.out.println("Digite a opcao desejada");
-        System.out.println("1. Ver medicamentos");
-        System.out.println("2. Ver pacientes");
-
-        System.out.println("10. Fechar o sistema");
+        System.out.println(".---------------------------.");
+        System.out.println("|      MENU OPÇÕES          |");
+        System.out.println("| Digite a opção desejada   |");
+        System.out.println("|                           |");
+        System.out.println("|1. Ver medicamentos        |");
+        System.out.println("|                           | ");
+        System.out.println("| 2. Ver pacientes          |");
+        System.out.println("|                           |");
+        System.out.println("| 10. Fechar o sistema      |");
+        System.out.println("'---------------------------'");
         int opcao = sc.nextInt();
         System.out.println("\f");
         switch (opcao) {
             case 1:
                 verRemedio();
 
-                System.out.println("MENU DE OPCOES");
-                System.out.println("1. Voltar para o menu");
-                System.out.println("2. Alterar estoque");
+                System.out.println("       MENU DE OPÇÕES");
+                System.out.println("\n 1. Voltar para o menu");
+                System.out.println("\n 2. Alterar estoque");
                 opcao = sc.nextInt();
                 switch(opcao){
                     case 1:
@@ -64,9 +68,9 @@ public class App {
             case 2:
                 verPacientes();
 
-                System.out.println("MENU DE OPCOES");
-                System.out.println("1. Voltar para o menu");
-                System.out.println("2. Adicionar paciente");
+                System.out.println("     MENU DE OPÇÕES");
+                System.out.println("\n 1. Voltar ao menu");
+                System.out.println("\n 2. Adicionar paciente");
                 opcao = sc.nextInt();
                 switch(opcao){
                     case 1:
@@ -101,7 +105,7 @@ public class App {
         for(int i=0; i<4; i++){
             System.out.println("\f");
             System.out.println(vMedicamento[i].toString());
-            System.out.println("Digite a quantia atual:");
+            System.out.println("\n Digite a quantia atual:");
             quant = sc.nextInt();
             ((Medicamento) vMedicamento[i]).setQuantia(quant);
         }
@@ -133,7 +137,7 @@ public class App {
             }
         }
         else{
-            System.out.println("Nenhum paciente a encontrado");
+            System.out.println("\n Nenhum paciente encontrado");
         }
     }
 
@@ -141,11 +145,11 @@ public class App {
         if(quantiaPacientes()<10){
             for(int i=0; i<10; i++){
                 if(((Paciente) vPacientes[i]).getNome() == null){
-                    System.out.println("Digite o nome do paciente");
+                    System.out.println("\n Digite o nome do paciente");
                     String nome = sc.next();
                     ((Paciente) vPacientes[i]).setNome(nome);
 
-                    System.out.println("Digite o numero correspondente ao diagnostico");
+                    System.out.println("\n Digite o numero correspondente ao diagnostico");
                     for(int j=0; j<4; j++){
                         System.out.println((j+1)+". "+vDiagnostico[j]);
                     }
@@ -154,7 +158,7 @@ public class App {
                     diagnostico = diagnostico - 1;
                     ((Paciente) vPacientes[i]).setDiagnostico(vDiagnostico[diagnostico]);
                     
-                    System.out.println("Digite o numero correspondente ao medicamento");
+                    System.out.println("\n Digite o numero correspondente ao medicamento");
                     for(int j=0; j<4; j++){
                         System.out.println((j+1)+". "+((Medicamento) vMedicamento[j]).getRemedio());
                     }
@@ -164,21 +168,21 @@ public class App {
 
                     int estoqueRemedio = ((Medicamento) vMedicamento[medicamento]).getQuantia();
                     System.out.println("Estoque disponivel de "+((Medicamento) vMedicamento[medicamento]).getRemedio()+": "+estoqueRemedio);
-                    System.out.println("Digite o numero de caixas receitadas");
+                    System.out.println("\n Digite o numero de caixas receitadas");
                     int caixas = sc.nextInt();
                     while(estoqueRemedio<caixas){
-                        System.out.println("Estoque indisponivel, digite um valor valido");
-                        System.out.println("Digite o numero de caixas receitadas");
+                        System.out.println("\n Estoque indisponivel, digite um valor valido");
+                        System.out.println("\n Digite o numero de caixas receitadas");
                         caixas = sc.nextInt();
                     }
                     ((Medicamento) vMedicamento[i]).setQuantia(((Medicamento) vMedicamento[i]).getQuantia() - caixas);
                     ((Paciente) vPacientes[i]).setCaixas(caixas);
 
-                    System.out.println("Digite o numero do cpf do paciente");
+                    System.out.println("\n Digite o numero do cpf do paciente");
                     long cpf = sc.nextLong();
                     ((Paciente) vPacientes[i]).setCpf(cpf);
 
-                    System.out.println("Digite o numero de telefone do paciente");
+                    System.out.println("\n Digite o numero de telefone do paciente");
                     long telefone = sc.nextLong();
                     ((Paciente) vPacientes[i]).setTelefone(telefone);
 
@@ -187,7 +191,7 @@ public class App {
             }
         }
         else{
-            System.out.println("A upa esta lotada!!!");
+            System.out.println("A upa está lotada!!!");
         }
     }
 }
