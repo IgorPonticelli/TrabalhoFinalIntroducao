@@ -26,6 +26,15 @@ public class Paciente {
     public void setCpf(String cpf) {this.cpf = cpf;}
     public void setTelefone(String telefone) {this.telefone = telefone;}
     public void setCaixas(int caixas) {this.caixas = caixas;}
+    public void setAll(String nome, String diagnostico, String medicamento,
+    String cpf, String telefone, int caixas) {
+        this.nome = nome;
+        this.diagnostico = diagnostico;
+        this.medicamento = medicamento;
+        this.cpf = cpf;
+        this. telefone = telefone;
+        this. caixas = caixas;
+    }
 
     public String toString(){
         return(

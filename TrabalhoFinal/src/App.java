@@ -19,7 +19,9 @@ public class App {
         System.out.println("|1. Ver medicamentos        |");
         System.out.println("|                           |");
         System.out.println("| 2. Ver pacientes          |");
-        System.out.println("|                           |");
+        System.out.println("| 3. Adicionar paciente     |");
+        System.out.println("| 4. dar auta paciente      |");
+        System.out.println("| 5. acessar menu de desenvolvedor       |");
         System.out.println("| 10. Fechar o sistema      |");
         System.out.println("'---------------------------'");
         int opcao = sc.nextInt();
@@ -50,7 +52,7 @@ public class App {
 
                 System.out.println("     MENU DE OPÇÕES");
                 System.out.println("\n 1. Voltar ao menu");
-                System.out.println("\n 2. Adicionar paciente");
+                System.out.println("\n 2. ordem alfabetica");
                 System.out.println("\n 3. Ver lista detalhada dos pacientes");
                 opcao = sc.nextInt();
                 switch(opcao){
@@ -58,7 +60,8 @@ public class App {
                         return true;
 
                     case 2:
-                        CadastroPacientes.cadastroPacientes();
+                        //em progresso...
+                        CadastroPacientes.ordemAlfabetica();
                         return true;
 
                     case 3:
@@ -68,6 +71,36 @@ public class App {
                     default:
                         System.out.println("Opção invalida");
                         return true;
+                }
+            
+            case 3:
+                CadastroPacientes.cadastroPacientes();
+                return true;
+
+            case 4:
+                CadastroPacientes.darAutaPaciente();
+                return true;
+
+            case 5:
+                System.out.println("     MENU DE OPÇÕES");
+                System.out.println("\n 1. Escrever todo vetor");
+                System.out.println("\n 2. Escrever somente posições ocupadas");
+                System.out.println("\n 3. Voltar para o menu");
+                opcao = sc.nextInt();
+                switch (opcao){
+                    case 1: 
+                        CadastroPacientes.escreveTodoVetor();
+                        return true;
+                    case 2:
+                        CadastroPacientes.escreveOcupadosNoVetor();
+                        return true;
+
+                    case 3:
+                        return true;
+                    default:
+                        System.out.println("Opção Invalida");
+                        return true;
+
                 }
 
             case 10:

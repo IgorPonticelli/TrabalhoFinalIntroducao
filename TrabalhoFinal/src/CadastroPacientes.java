@@ -145,4 +145,38 @@ public class CadastroPacientes {
             System.out.println("A upa está lotada!!!");
         }
     }
+
+    public static void darAutaPaciente(){
+        for(int i=0; i<10; i++){
+            if(((Paciente) vPacientes[i]).getNome() != null){
+                System.out.println("Paciente n° "+(i+1)+":");
+                System.out.println(((Paciente) vPacientes[i]).toString());
+            }
+        }
+
+        System.out.println("Digite o numero do paciente a receber alta ");
+        int paciente = sc.nextInt();
+
+        ((Paciente) vPacientes[paciente-1]).setAll(null, null, null, null, null, paciente);
+    }
+
+    public static void escreveTodoVetor(){
+        for(int i=0; i<10; i++){
+            System.out.println("Posição "+(i)+":");
+            System.out.println(((Paciente) vPacientes[i]).toString());
+        } 
+    }
+
+    public static void escreveOcupadosNoVetor(){
+        for(int i=0; i<10; i++){
+            if(((Paciente) vPacientes[i]).getNome() != null){
+                System.out.println("Posição "+(i)+":");
+                System.out.println(((Paciente) vPacientes[i]).toString());
+            }
+        } 
+    }
+
+    public static void ordemAlfabetica(){
+        //Em progresso...
+    }
 }
