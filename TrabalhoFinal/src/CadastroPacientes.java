@@ -66,7 +66,7 @@ public class CadastroPacientes {
             }
         }
         else{
-            System.out.println("\n Nenhum paciente encontrado");
+            System.out.println("\n **Nenhum paciente encontrado**");
         }
     }
 
