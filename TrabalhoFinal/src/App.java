@@ -26,7 +26,7 @@ public class App {
         System.out.println("|                                       |");
         System.out.println("| 5. acessar menu de desenvolvedor      |");
         System.out.println("|                                       |");
-        System.out.println("| 10. Fechar o sistema                  |");
+        System.out.println("| 6. Fechar o sistema                   |");
         System.out.println("'---------------------------------------'");
         int opcao = sc.nextInt();
         System.out.println("\f");
@@ -135,7 +135,7 @@ public class App {
 
                 }
 
-            case 10:
+            case 6:
                 return false;
     
             default:
