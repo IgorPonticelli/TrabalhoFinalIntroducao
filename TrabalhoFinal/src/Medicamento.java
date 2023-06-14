@@ -16,8 +16,8 @@ public class Medicamento {
     public String toString()
     {
         return(
-        "\n Medicamento: " + remedio +
-        "\n Estoque: " + quantia
+        "\n - Medicamento: " + remedio +
+        "\n - Estoque: " + quantia
         );    
     }
 }
