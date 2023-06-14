@@ -176,7 +176,26 @@ public class CadastroPacientes {
         } 
     }
 
-    public static void ordemAlfabetica(){
-        //Em progresso...
+    public static String[] ordemAlfabetica(){
+        String[] aux = new String[quantiaPacientes()];
+        for(int i=0; i<quantiaPacientes(); i++){
+            aux[i] = (((Paciente) vPacientes[i]).getNome()).toUpperCase();
+        }
+        Arrays.sort(aux);
+        return aux;
+    }
+
+    public static Object[] ordemAlfabeticaDetalhada(){
+        Object[] aux = new Object[quantiaPacientes()];
+        for(int i=0; i<quantiaPacientes(); i++){
+            for(int j=0; j<quantiaPacientes(); j++){
+                String nome1 = (((Paciente) vPacientes[j]).getNome()).toUpperCase();
+                String nome2 = ordemAlfabetica()[i];
+                if(nome1.equals(nome2)){
+                    aux[i] = ((Paciente) vPacientes[j]);
+                }
+            }
+        }
+        return aux;
     }
 }

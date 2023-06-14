@@ -60,16 +60,36 @@ public class App {
                         return true;
 
                     case 2:
-                        //em progresso...
-                        CadastroPacientes.ordemAlfabetica();
+                        for(int i=0; i<CadastroPacientes.quantiaPacientes(); i++){
+                            System.out.println("Paciente n° "+(i)+":");
+                            System.out.println(CadastroPacientes.ordemAlfabetica()[i]);
+                        }
                         return true;
 
                     case 3:
                         CadastroPacientes.verDetalhadoPacientes();
+                        System.out.println("     MENU DE OPÇÕES");
+                        System.out.println("\n 1. Voltar ao menu");
+                        System.out.println("\n 2. ordem alfabetica");
+                        opcao = sc.nextInt();
+
+                        switch (opcao){
+                            case 1:
+                                return true;
+
+                            case 2:
+                                Object vAux[] = CadastroPacientes.ordemAlfabeticaDetalhada();
+                                for(int i=0; i<CadastroPacientes.quantiaPacientes(); i++){
+                                    System.out.println("Paciente n° "+(i)+":");
+                                    System.out.print(((Paciente) vAux[i]).toString());
+                                }
+                                return true;
+                        }
                         return true;
                     
                     default:
                         System.out.println("Opção invalida");
+                        
                         return true;
                 }
             
