@@ -34,7 +34,7 @@ public class App {
             case 1:
                 CadastroPacientes.verRemedio();
 
-                System.out.println("       MENU DE OPÇÕES   ");
+                System.out.println("    \n MENU DE OPÇÕES   ");
                 System.out.println("                        ");
                 System.out.println("\n 1. Voltar para o menu");
                 System.out.println("                        ");
