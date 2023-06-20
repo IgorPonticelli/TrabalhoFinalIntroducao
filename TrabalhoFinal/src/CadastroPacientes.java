@@ -123,8 +123,8 @@ public class CadastroPacientes {
                         sc.nextLine();
                         diagnostico = sc.nextInt();
                     }while(diagnostico  <= 0 || diagnostico > 4 );
-                    diagnostico = diagnostico - 1;
-                    ((Paciente) vPacientes[i]).setDiagnostico(vDiagnostico[diagnostico]);
+                        diagnostico = diagnostico - 1;
+                        ((Paciente) vPacientes[i]).setDiagnostico(vDiagnostico[diagnostico]);
 
                     int medicamento;
                     do{
@@ -134,8 +134,8 @@ public class CadastroPacientes {
                         }
                         medicamento = sc.nextInt();
                     }while(medicamento  <= 0 || medicamento > 4);
-                    medicamento = medicamento - 1;
-                    ((Paciente) vPacientes[i]).setMedicamento(((Medicamento) vMedicamento[medicamento]).getRemedio());
+                        medicamento = medicamento - 1;
+                        ((Paciente) vPacientes[i]).setMedicamento(((Medicamento) vMedicamento[medicamento]).getRemedio());
 
                     int estoqueRemedio = ((Medicamento) vMedicamento[medicamento]).getQuantia();
                     System.out.println("Estoque disponivel de "+((Medicamento) vMedicamento[medicamento]).getRemedio()+": "+estoqueRemedio);
