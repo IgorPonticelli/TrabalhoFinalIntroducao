@@ -100,15 +100,22 @@ public class CadastroPacientes {
                     String nome = sc.next();
                     ((Paciente) vPacientes[i]).setNome(nome);
 
+                    String cpf;
+                    do{
                     System.out.println("\n Digite o numero do cpf do paciente");
-                    String cpf = sc.next();
+                    cpf = sc.next();
+                    }while(cpf.length() != 11);
                     ((Paciente) vPacientes[i]).setCpf(cpf);
 
-                    System.out.println("\n Digite o numero de telefone do paciente");
-                    String telefone = sc.next();
+                    String telefone;
+                    do{
+                    System.out.println("\n Digite o número de telefone do paciente");
+                    telefone = sc.next();
                     ((Paciente) vPacientes[i]).setTelefone(telefone);
-
-                    System.out.println("\n Digite o numero correspondente ao diagnostico");
+                    }while(telefone.length()!=9);
+                    ((Paciente) vPacientes[i]).setTelefone(telefone);
+                    
+                    System.out.println("\n Digite o número correspondente ao diagnostico");
                     for(int j=0; j<4; j++){
                         System.out.println((j+1)+". "+vDiagnostico[j]);
                     }
@@ -117,6 +124,7 @@ public class CadastroPacientes {
                     diagnostico = diagnostico - 1;
                     ((Paciente) vPacientes[i]).setDiagnostico(vDiagnostico[diagnostico]);
                     
+
                     System.out.println("\n Digite o numero correspondente ao medicamento");
                     for(int j=0; j<4; j++){
                         System.out.println((j+1)+". "+((Medicamento) vMedicamento[j]).getRemedio());
