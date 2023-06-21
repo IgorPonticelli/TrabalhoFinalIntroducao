@@ -26,7 +26,9 @@ public class App {
         System.out.println("|                                       |");
         System.out.println("| 5. acessar menu de desenvolvedor      |");
         System.out.println("|                                       |");
-        System.out.println("| 6. Fechar o sistema                   |");
+        System.out.println("| 6. Relatorio de doenças               |");
+        System.out.println("|                                       |");
+        System.out.println("| 10. Fechar o sistema                  |");
         System.out.println("'---------------------------------------'");
         int opcao = sc.nextInt();
         System.out.println("\f");
@@ -115,8 +117,11 @@ public class App {
                         return true;
 
                 }
-
+           
             case 6:
+                CadastroPacientes.relatorioDoencas();
+                return true;
+            case 10:
                 return false;
     
             default:

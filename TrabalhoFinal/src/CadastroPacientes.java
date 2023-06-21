@@ -196,4 +196,27 @@ public class CadastroPacientes {
         Arrays.sort(aux);
         return aux;
     }
+
+    public static void relatorioDoencas() {
+        //vDiagnostico[] = {"Covid", "Zica", "Chikungunya", "Dengue"};
+        int[] vQuantiaDiagnostico = vetorQuantiaDiagnosticos();
+        for(int i=0; i<4; i++){
+            System.out.println("Diagnostico: "+vDiagnostico[i]);
+            System.out.println("Quantia: "+vQuantiaDiagnostico[i]);
+        }
+    }
+
+    private static int[] vetorQuantiaDiagnosticos() {
+        //vDiagnostico[] = {"Covid", "Zica", "Chikungunya", "Dengue"};
+        int[] quantia = {0, 0, 0, 0};
+
+        for(int i=0; i<quantiaPacientes(); i++){
+            for(int j=0; j<4; j++){
+                if(((Paciente) vPacientes[i]).getDiagnostico().equals(vDiagnostico[j])){
+                    quantia[j]++;
+                }
+            }
+        }
+        return quantia;
+    }
 }
