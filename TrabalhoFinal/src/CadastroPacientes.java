@@ -171,7 +171,7 @@ public class CadastroPacientes {
             System.out.println("Digite o numero do paciente a receber alta ");
             paciente = sc.nextInt();
 
-        }while(paciente == 0);
+        }while(paciente == 0 || paciente > 10);
         ((Paciente) vPacientes[paciente-1]).setAll(null, null, null, null, null, paciente);
     }
 
