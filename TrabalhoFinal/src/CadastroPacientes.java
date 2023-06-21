@@ -100,30 +100,42 @@ public class CadastroPacientes {
                     String nome = sc.next();
                     ((Paciente) vPacientes[i]).setNome(nome);
 
-                    System.out.println("\n Digite o numero do cpf do paciente");
-                    String cpf = sc.next();
-                    ((Paciente) vPacientes[i]).setCpf(cpf);
+                    String cpf;
+                    do{
+                        System.out.println("\n Digite o número do cpf do paciente");
+                        cpf = sc.next();
+                    }while(cpf.length() != 11);
+                        ((Paciente) vPacientes[i]).setCpf(cpf);
 
-                    System.out.println("\n Digite o numero de telefone do paciente");
-                    String telefone = sc.next();
-                    ((Paciente) vPacientes[i]).setTelefone(telefone);
-
-                    System.out.println("\n Digite o numero correspondente ao diagnostico");
-                    for(int j=0; j<4; j++){
-                        System.out.println((j+1)+". "+vDiagnostico[j]);
-                    }
-                    sc.nextLine();
-                    int diagnostico = sc.nextInt();
-                    diagnostico = diagnostico - 1;
-                    ((Paciente) vPacientes[i]).setDiagnostico(vDiagnostico[diagnostico]);
+                    String telefone;
+                    do{
+                        System.out.println("\n Digite o número de telefone do paciente");
+                        telefone = sc.next();
+                    }while(telefone.length()!=9);
+                        ((Paciente) vPacientes[i]).setTelefone(telefone);
                     
-                    System.out.println("\n Digite o numero correspondente ao medicamento");
-                    for(int j=0; j<4; j++){
-                        System.out.println((j+1)+". "+((Medicamento) vMedicamento[j]).getRemedio());
-                    }
-                    int medicamento = sc.nextInt();
-                    medicamento = medicamento - 1;
-                    ((Paciente) vPacientes[i]).setMedicamento(((Medicamento) vMedicamento[medicamento]).getRemedio());
+                    int diagnostico;
+                    do{
+                        System.out.println("\n Digite o número correspondente ao diagnostico");
+                        for(int j=0; j<4; j++){
+                            System.out.println((j+1)+". "+vDiagnostico[j]);
+                        }
+                        sc.nextLine();
+                        diagnostico = sc.nextInt();
+                    }while(diagnostico  <= 0 || diagnostico > 4 );
+                        diagnostico = diagnostico - 1;
+                        ((Paciente) vPacientes[i]).setDiagnostico(vDiagnostico[diagnostico]);
+
+                    int medicamento;
+                    do{
+                        System.out.println("\n Digite o numero correspondente ao medicamento");
+                        for(int j=0; j<4; j++){
+                            System.out.println((j+1)+". "+((Medicamento) vMedicamento[j]).getRemedio());
+                        }
+                        medicamento = sc.nextInt();
+                    }while(medicamento  <= 0 || medicamento > 4);
+                        medicamento = medicamento - 1;
+                        ((Paciente) vPacientes[i]).setMedicamento(((Medicamento) vMedicamento[medicamento]).getRemedio());
 
                     int estoqueRemedio = ((Medicamento) vMedicamento[medicamento]).getQuantia();
                     System.out.println("Estoque disponivel de "+((Medicamento) vMedicamento[medicamento]).getRemedio()+": "+estoqueRemedio);
@@ -154,9 +166,12 @@ public class CadastroPacientes {
             }
         }
 
-        System.out.println("Digite o numero do paciente a receber alta ");
-        int paciente = sc.nextInt();
+        int paciente;
+        do{
+            System.out.println("Digite o numero do paciente a receber alta ");
+            paciente = sc.nextInt();
 
+        }while(paciente == 0);
         ((Paciente) vPacientes[paciente-1]).setAll(null, null, null, null, null, paciente);
     }
 

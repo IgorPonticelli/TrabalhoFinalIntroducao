@@ -9,8 +9,8 @@ public class Paciente {
         this.diagnostico = diagnostico;
         this.medicamento = medicamento;
         this.cpf = cpf;
-        this. telefone = telefone;
-        this. caixas = caixas;
+        this.telefone = telefone;
+        this.caixas = caixas;
     }
     
     public String getNome() {return nome;}
@@ -32,14 +32,14 @@ public class Paciente {
         this.diagnostico = diagnostico;
         this.medicamento = medicamento;
         this.cpf = cpf;
-        this. telefone = telefone;
-        this. caixas = caixas;
+        this.telefone = telefone;
+        this.caixas = caixas;
     }
 
     public String toString(){
         return(
         " Nome: " + nome +
-        "\n Diagnostico: " + diagnostico +
+        "\n Diagnóstico: " + diagnostico +
         "\n Medicamento: " + medicamento +
         "\n CPF: " + cpf + 
         "\n Telefone: " + telefone +

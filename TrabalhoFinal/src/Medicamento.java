@@ -17,7 +17,8 @@ public class Medicamento {
     {
         return(
         "\n - Medicamento: " + remedio +
-        "\n - Estoque: " + quantia
+        "\n - Estoque: " + quantia +
+        "\n --------------------------"
         );    
     }
 }

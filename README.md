@@ -1,2 +1,2 @@
 # TrabalhoFinalIntroducao
-Trabalho final de introdução a computação
+Trabalho final de fundamentos de programação 

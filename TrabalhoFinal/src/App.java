@@ -14,7 +14,7 @@ public class App {
 
         System.out.println(".---------------------------------------.");
         System.out.println("|              *MENU OPÇÕES*            |");
-        System.out.println("|         Digite a opção desejada       |");
+        System.out.println("|        Digite a opção desejada        |");
         System.out.println("|                                       |");
         System.out.println("| 1. Ver medicamentos                   |");
         System.out.println("|                                       |");
@@ -28,7 +28,7 @@ public class App {
         System.out.println("|                                       |");
         System.out.println("| 6. Relatorio de doenças               |");
         System.out.println("|                                       |");
-        System.out.println("| 10. Fechar o sistema                  |");
+        System.out.println("| 7. Fechar o sistema                   |");
         System.out.println("'---------------------------------------'");
         int opcao = sc.nextInt();
         System.out.println("\f");
@@ -36,7 +36,7 @@ public class App {
             case 1:
                 CadastroPacientes.verRemedio();
 
-                System.out.println("       MENU DE OPÇÕES   ");
+                System.out.println("    \n MENU DE OPÇÕES   ");
                 System.out.println("                        ");
                 System.out.println("\n 1. Voltar para o menu");
                 System.out.println("                        ");
@@ -117,11 +117,11 @@ public class App {
                         return true;
 
                 }
-            
+           
             case 6:
                 CadastroPacientes.relatorioDoencas();
                 return true;
-            case 10:
+            case 7:
                 return false;
     
             default:
