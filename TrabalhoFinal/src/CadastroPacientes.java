@@ -105,14 +105,14 @@ public class CadastroPacientes {
                         System.out.println("\n Digite o número do cpf do paciente");
                         cpf = sc.next();
                     }while(cpf.length() != 11);
-                    ((Paciente) vPacientes[i]).setCpf(cpf);
+                        ((Paciente) vPacientes[i]).setCpf(cpf);
 
                     String telefone;
                     do{
                         System.out.println("\n Digite o número de telefone do paciente");
                         telefone = sc.next();
                     }while(telefone.length()!=9);
-                    ((Paciente) vPacientes[i]).setTelefone(telefone);
+                        ((Paciente) vPacientes[i]).setTelefone(telefone);
                     
                     int diagnostico;
                     do{
@@ -166,9 +166,12 @@ public class CadastroPacientes {
             }
         }
 
-        System.out.println("Digite o numero do paciente a receber alta ");
-        int paciente = sc.nextInt();
+        int paciente;
+        do{
+            System.out.println("Digite o numero do paciente a receber alta ");
+            paciente = sc.nextInt();
 
+        }while(paciente == 0);
         ((Paciente) vPacientes[paciente-1]).setAll(null, null, null, null, null, paciente);
     }
 
