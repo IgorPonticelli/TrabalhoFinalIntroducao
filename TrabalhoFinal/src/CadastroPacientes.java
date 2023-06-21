@@ -188,20 +188,27 @@ public class CadastroPacientes {
     public static void relatorioDoencas() {
         //vDiagnostico[] = {"Covid", "Zica", "Chikungunya", "Dengue"};
         int[] vQuantiaDiagnostico = vetorQuantiaDiagnosticos();
+        double porcentagem;
         for(int i=0; i<4; i++){
+            if(quantiaPacientes() == 0){
+                porcentagem = 0;
+            }else{
+                porcentagem = (double) ((100/quantiaPacientes()) * vQuantiaDiagnostico[i]);
+            }
             System.out.println("Diagnostico: "+vDiagnostico[i]);
             System.out.println("Quantia: "+vQuantiaDiagnostico[i]);
+            System.out.println("Porcentagem: "+porcentagem+"%");
         }
     }
 
     private static int[] vetorQuantiaDiagnosticos() {
-        //vDiagnostico[] = {"Covid", "Zica", "Chikungunya", "Dengue"};
         int[] quantia = {0, 0, 0, 0};
 
         for(int i=0; i<quantiaPacientes(); i++){
             for(int j=0; j<4; j++){
                 if(((Paciente) vPacientes[i]).getDiagnostico().equals(vDiagnostico[j])){
                     quantia[j]++;
+                    break;
                 }
             }
         }
