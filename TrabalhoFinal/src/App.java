@@ -10,8 +10,6 @@ public class App {
     }
 
     public static boolean menu(){
-        System.out.println("\f");
-
         System.out.println(".---------------------------------------.");
         System.out.println("|              *MENU OPÇÕES*            |");
         System.out.println("|        Digite a opção desejada        |");
@@ -30,10 +28,9 @@ public class App {
         System.out.println("|                                       |");
         System.out.println("| 7. Fechar o sistema                   |");
         System.out.println("'---------------------------------------'");
-        int opcao = sc.nextInt();
-        System.out.println("\f");
+        String opcao = sc.next();
         switch (opcao) {
-            case 1:
+            case "1":
                 CadastroPacientes.verRemedio();
 
                 System.out.println("    \n MENU DE OPÇÕES   ");
@@ -41,12 +38,12 @@ public class App {
                 System.out.println("\n 1. Voltar para o menu");
                 System.out.println("                        ");
                 System.out.println("\n 2. Alterar o estoque   ");
-                opcao = sc.nextInt();
+                opcao = sc.next();
                 switch(opcao){
-                    case 1:
+                    case "1":
                         return true;
 
-                    case 2:
+                    case "2":
                         CadastroPacientes.atualizaRemedio();
                         return true;
                     
@@ -55,7 +52,7 @@ public class App {
                         return true;
                 }
 
-            case 2:
+            case "2":
                 CadastroPacientes.verPacientes();
 
                 System.out.println("            *MENU DE OPÇÕES*            ");
@@ -65,19 +62,19 @@ public class App {
                 System.out.println("\n 2. Ordem alfabetica                  ");
                 System.out.println("                                        ");
                 System.out.println("\n 3. Ver lista detalhada dos pacientes ");
-                opcao = sc.nextInt();
+                opcao = sc.next();
                 switch(opcao){
-                    case 1:
+                    case "1":
                         return true;
 
-                    case 2:
+                    case "2":
                         for(int i=0; i<CadastroPacientes.quantiaPacientes(); i++){
                             System.out.println("Paciente n° "+(i)+":");
                             System.out.println(CadastroPacientes.ordemAlfabetica()[i]);
                         }
                         return true;
 
-                    case 3:
+                    case "3":
                         CadastroPacientes.verDetalhadoPacientes();
 
                     default:
@@ -85,15 +82,15 @@ public class App {
                         return true;
                 }
             
-            case 3:
+            case "3":
                 CadastroPacientes.cadastroPacientes();
                 return true;
 
-            case 4:
+            case "4":
                 CadastroPacientes.darAutaPaciente();
                 return true;
 
-            case 5:
+            case "5":
                 System.out.println("              *MENU DE OPÇÕES*          ");
                 System.out.println("                                        ");
                 System.out.println("\n 1. Escrever todo vetor               ");
@@ -101,16 +98,16 @@ public class App {
                 System.out.println("\n 2. Escrever somente posições ocupadas");
                 System.out.println("                                        ");
                 System.out.println("\n 3. Voltar para o menu                ");
-                opcao = sc.nextInt();
+                opcao = sc.next();
                 switch (opcao){
-                    case 1: 
+                    case "1": 
                         CadastroPacientes.escreveTodoVetor();
                         return true;
-                    case 2:
+                    case "2":
                         CadastroPacientes.escreveOcupadosNoVetor();
                         return true;
 
-                    case 3:
+                    case "3":
                         return true;
                     default:
                         System.out.println("**Opção Invalida**");
@@ -118,10 +115,10 @@ public class App {
 
                 }
            
-            case 6:
+            case "6":
                 CadastroPacientes.relatorioDoencas();
                 return true;
-            case 7:
+            case "7":
                 return false;
     
             default:
