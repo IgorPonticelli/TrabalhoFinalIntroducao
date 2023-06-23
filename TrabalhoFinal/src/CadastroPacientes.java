@@ -32,7 +32,6 @@ public class CadastroPacientes {
     public static void atualizaRemedio(){
         int quant;
         for(int i=0; i<4; i++){
-            System.out.println("\f");
             System.out.println(vMedicamento[i].toString());
             System.out.println("\n Digite a quantia atual:");
             quant = sc.nextInt();
@@ -96,22 +95,40 @@ public class CadastroPacientes {
         if(quantiaPacientes()<10){
             for(int i=0; i<10; i++){
                 if(((Paciente) vPacientes[i]).getNome() == null){
-                    System.out.println("\n Digite o nome do paciente");
-                    String nome = sc.next();
+                    String nome;
+                    do{
+                        System.out.println("\n Digite o nome do paciente");
+                        nome = sc.next();
+                        if(verificaSeTemNumero(nome)){
+                            System.out.println("\n O nome deve conter apenas letras");
+                        }
+                    }while(verificaSeTemNumero(nome));
                     ((Paciente) vPacientes[i]).setNome(nome);
 
                     String cpf;
                     do{
                         System.out.println("\n Digite o número do cpf do paciente");
                         cpf = sc.next();
-                    }while(cpf.length() != 11);
+                        if(cpf.length() != 11){
+                            System.out.println("O CPF deve conter 11 digitos");
+                        }
+                        if(verificaSeTemLetra(cpf)){
+                            System.out.println("O CPF deve conter apenas numeros");
+                        }
+                    }while(cpf.length() != 11 || verificaSeTemLetra(cpf));
                         ((Paciente) vPacientes[i]).setCpf(cpf);
 
                     String telefone;
                     do{
-                        System.out.println("\n Digite o número de telefone do paciente");
+                        System.out.println("\n Digite o número de telefone do paciente com codigo de area");
                         telefone = sc.next();
-                    }while(telefone.length()!=9);
+                        if(telefone.length()!=9){
+                            System.out.println("\n O telefone deve possuir 11 digitos");
+                        }
+                        if(verificaSeTemLetra(telefone)){
+                            System.out.println("\n O telefone deve possuir apenas numeros");
+                        }
+                    }while(telefone.length()!=11 || verificaSeTemLetra(telefone));
                         ((Paciente) vPacientes[i]).setTelefone(telefone);
                     
                     int diagnostico;
@@ -133,6 +150,9 @@ public class CadastroPacientes {
                             System.out.println((j+1)+". "+((Medicamento) vMedicamento[j]).getRemedio());
                         }
                         medicamento = sc.nextInt();
+                        if(medicamento  <= 0 || medicamento > 4){
+                            System.out.println("\n Digite um numero valido");
+                        }
                     }while(medicamento  <= 0 || medicamento > 4);
                         medicamento = medicamento - 1;
                         ((Paciente) vPacientes[i]).setMedicamento(((Medicamento) vMedicamento[medicamento]).getRemedio());
@@ -158,6 +178,20 @@ public class CadastroPacientes {
         }
     }
 
+    public static boolean verificaSeTemLetra(String s){
+        if(s != null && s.matches("^[0-9]*$")){
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean verificaSeTemNumero(String s){
+        if(s != null && s.matches("^[a-zA-Z]*$")){
+            return false;
+        }
+        return true;
+    }
+
     public static void darAutaPaciente(){
         for(int i=0; i<10; i++){
             if(((Paciente) vPacientes[i]).getNome() != null){
@@ -171,8 +205,24 @@ public class CadastroPacientes {
             System.out.println("Digite o numero do paciente a receber alta ");
             paciente = sc.nextInt();
 
-        }while(paciente == 0);
-        ((Paciente) vPacientes[paciente-1]).setAll(null, null, null, null, null, paciente);
+            if(paciente == 0 || paciente > 10){
+                System.out.println("Digite um numero de paciente valido");
+            }
+        }while(paciente == 0 || paciente > 10);
+        ((Paciente) vPacientes[paciente-1]).setAll(null, null, null, null, null, 0);
+    }
+
+    public static void organizaVetor(int posicaoVetor){
+        for(int i = posicaoVetor; i<9; i++){
+            String nome = ((Paciente) vPacientes[i+1]).getNome();
+            String diagnostico = ((Paciente) vPacientes[i+1]).getDiagnostico();
+            String medicamento = ((Paciente) vPacientes[i+1]).getMedicamento();
+            String cpf = ((Paciente) vPacientes[i+1]).getCpf();
+            String telefone = ((Paciente) vPacientes[i+1]).getTelefone();
+            int caixas = ((Paciente) vPacientes[i+1]).getCaixas();
+            ((Paciente) vPacientes[i]).setAll(nome, diagnostico, medicamento, cpf, telefone, caixas);
+        }
+        ((Paciente) vPacientes[9]).setAll(null, null, null, null, null, posicaoVetor);
     }
 
     public static void escreveTodoVetor(){
