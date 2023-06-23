@@ -38,12 +38,19 @@ public class Paciente {
 
     public String toString(){
         return(
-        " Nome: " + nome +
-        "\n Diagnóstico: " + diagnostico +
-        "\n Medicamento: " + medicamento +
+        "\n--------------------------------"+
+        "\n Nome: " + nome +
+        "\n--------------------------------"+
         "\n CPF: " + cpf + 
+        "\n--------------------------------"+
         "\n Telefone: " + telefone +
-        "\n Quantia de caixas: " + caixas
+        "\n--------------------------------"+
+        "\n Diagnóstico: " + diagnostico +
+        "\n--------------------------------"+
+        "\n Medicamento: " + medicamento +
+        "\n--------------------------------"+
+        "\n Quantia de caixas: " + caixas +
+        "\n--------------------------------"
         );    
     }
 }

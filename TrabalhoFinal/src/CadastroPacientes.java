@@ -98,7 +98,9 @@ public class CadastroPacientes {
             for(int i=0; i<10; i++){
                 //imprime as informações detalhadas de cada paciente
                 if(((Paciente) vPacientes[i]).getNome() != null){
-                    System.out.println("Paciente n° "+(i+1)+":");
+                    //System.out.println("\n._________________________.");
+                    System.out.println("\n||Paciente n° "+(i+1)+":||");
+                    //System.out.println("\n'-------------------------'");
                     System.out.println(((Paciente) vPacientes[i]).toString());
                 }
             } 
@@ -264,7 +266,9 @@ public class CadastroPacientes {
     //escreve todo o vetor
     public static void escreveTodoVetor(){
         for(int i=0; i<10; i++){
-            System.out.println("Posição "+(i)+":");
+            System.out.println("\n ============");
+            System.out.println("\n Posição "+(i)+":");
+            System.out.println("\n ============");
             System.out.println(((Paciente) vPacientes[i]).toString());
         } 
     }
@@ -301,10 +305,12 @@ public class CadastroPacientes {
                 //calcula a porcentagem
                 porcentagem = (double) ((100/quantiaPacientes()) * vQuantiaDiagnostico[i]);
             }
+
             //imprime as informações
-            System.out.println("Diagnostico: "+vDiagnostico[i]);
-            System.out.println("Quantia: "+vQuantiaDiagnostico[i]);
-            System.out.println("Porcentagem: "+porcentagem+"%");
+            System.out.println(" **Diagnostico: "+vDiagnostico[i]+"**");
+            System.out.println("   Quantia: "+vQuantiaDiagnostico[i]);
+            System.out.println("   Porcentagem: "+porcentagem+"%");
+            System.out.println("\n             ");
         }
     }
 
